@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-web-share",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Web Share API polyfill for Cordova",
   "cordova": {
     "id": "cordova-plugin-web-share",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chemerisuk/cordova-plugin-web-share.git"
+    "url": "git+https://github.com/dimitriadamou/cordova-plugin-web-share.git"
   },
-  "author": "Maksim Chemerisuk <chemerisuk@gmail.com> (https://github.com/chemerisuk)",
+  "author": "Maksim Chemerisuk <chemerisuk@gmail.com> (https://github.com/chemerisuk), Modified by Dimitri Adamou <dimitri_adamou@live.com.au>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/chemerisuk/cordova-plugin-web-share/issues"
+    "url": "https://github.com/dimitriadamou/cordova-plugin-web-share/issues"
   },
-  "homepage": "https://github.com/chemerisuk/cordova-plugin-web-share#readme",
+  "homepage": "https://github.com/dimitriadamou/cordova-plugin-web-share#readme",
   "keywords": [
     "cordova",
     "share",

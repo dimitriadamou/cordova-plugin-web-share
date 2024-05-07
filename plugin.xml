@@ -7,8 +7,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     <description>Web Share API polyfill for Cordova</description>
     <license>MIT</license>
     <keywords>cordova</keywords>
-    <repo>https://github.com/chemerisuk/cordova-plugin-web-share</repo>
-    <issue>https://github.com/chemerisuk/cordova-plugin-web-share/issues</issue>
+    <repo>https://github.com/dimitriadamou/cordova-plugin-web-share</repo>
+    <issue>https://github.com/dimitriadamou/cordova-plugin-web-share/issues</issue>
 
     <js-module src="www/WebShare.js" name="WebShare">
         <clobbers target="window.navigator.share" />
@@ -44,7 +44,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             <receiver android:name="by.chemerisuk.cordova.WebShareReceiver" android:exported="false" />
         </config-file>
 
-        <dependency id="cordova-support-android-plugin" version="~2.0.4"/>
+        <dependency id="cordova-support-android-plugin" version="^1.0.2"/>
 
         <source-file src="src/android/WebSharePlugin.java"
             target-dir="src/by/chemerisuk/cordova/" />

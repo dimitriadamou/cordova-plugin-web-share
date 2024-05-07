@@ -5,17 +5,14 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.Context;
 
-import by.chemerisuk.cordova.support.CordovaMethod;
-import by.chemerisuk.cordova.support.ReflectiveCordovaPlugin;
-
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaArgs;
+import org.apache.cordova.CordovaPlugin;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
-public class WebSharePlugin extends ReflectiveCordovaPlugin {
+public class WebSharePlugin extends CordovaPlugin {
     private static final int SHARE_REQUEST_CODE = 18457896;
 
     private CallbackContext shareCallbackContext;
@@ -30,8 +27,16 @@ public class WebSharePlugin extends ReflectiveCordovaPlugin {
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
     }
 
-    @CordovaMethod
-    protected void share(CordovaArgs args, CallbackContext callbackContext) throws JSONException {
+    @Override
+    public boolean execute(String action, CordovaArgs args, CallbackContext callbackContext) throws JSONException {
+        if ("share".equals(action)) {
+            share(args, callbackContext);
+            return true;
+        }
+        return false;
+    }
+
+    private void share(CordovaArgs args, CallbackContext callbackContext) throws JSONException {
         JSONObject options = args.getJSONObject(0);
         String text = options.optString("text");
         String title = options.optString("title");
@@ -53,7 +58,7 @@ public class WebSharePlugin extends ReflectiveCordovaPlugin {
             sendIntent = Intent.createChooser(sendIntent, title);
         }
 
-        cordova.startActivityForResult(this, sendIntent, SHARE_REQUEST_CODE);
+        cordova.getActivity().startActivityForResult(sendIntent, SHARE_REQUEST_CODE);
         shareCallbackContext = callbackContext;
     }
 
